@@ -11,7 +11,7 @@
   iptables: 
     chain: INPUT
     destination_port: "{{ item[0].port }}"
-    protocol: tcp
+    protocol: "{{ item[0].protocol|default('tcp') }}"
     jump: ACCEPT
     ip_version: "{{ item[1] }}"
     source: "{{ item[0].source|default(omit) }}"
