@@ -8,6 +8,7 @@ outgoing_ports:
   - { port: 22, protocol: tcp, name: 'SSH' }
   - { port: 25, protocol: tcp, name: 'SMTP' }
   - { port: 80, protocol: tcp, name: 'HTTP' }
+  - { port: 123, protocol: udp, name: 'NTP' }
   - { port: 443, protocol: tcp, name: 'HTTPS' }
   - { port: 465, protocol: tcp, name: 'SMTPS' }
   - { port: 587, protocol: tcp, name: 'SMTP TLS' }
