@@ -2,8 +2,8 @@ incoming_ports:
   - { port: 22, protocol: tcp, name: 'SSH' }
   - { port: 80, protocol: tcp, name: 'HTTP' }
   - { port: 443, protocol: tcp, name: 'HTTPS' }
-  - { port: 5665, protocol: tcp, name: 'Icinga2', state: 'absent' }
   - { port: 5665, protocol: tcp, source: "{{ primary_icinga_server }}", name: 'Icinga2' }
+  - { port: "{{ security_ssh_port }}", protocol: tcp, name: 'Alternate SSH port' }
 
 outgoing_ports:
   - { port: 22, protocol: tcp, name: 'SSH' }
@@ -14,9 +14,10 @@ outgoing_ports:
   - { port: 465, protocol: tcp, name: 'SMTPS' }
   - { port: 587, protocol: tcp, name: 'SMTP TLS' }
   - { port: 5665, protocol: tcp, name: 'Icinga2' }
-  - { port: 10022, protocol: tcp, name: 'Megaphone git SSH' }
+  - { port: 10022, protocol: tcp, name: 'Megaphone git SSH', state: absent }
   - { port: 53, protocol: udp, name: 'DNS' }
   - { port: 993, protocol: tcp, name: 'IMAPS' }
+  - { port: "{{ security_ssh_port }}", protocol: tcp, name: 'Alternate SSH port' }
 
 ip_versions:
   - ipv4
