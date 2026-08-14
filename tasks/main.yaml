@@ -41,6 +41,7 @@
     protocol: "{{ item[0].protocol }}"
     jump: ACCEPT
     ip_version: "{{ item[1] }}"
+    ctstate: "{{ item[0].ctstate|default(omit) }}"
   with_nested:
     - "{{ outgoing_ports }}"
     - "{{ ip_versions }}"
